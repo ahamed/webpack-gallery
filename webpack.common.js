@@ -21,7 +21,7 @@ module.exports = {
     output: {
         filename: '[name].bundle.js',
         path: path.resolve(__dirname, 'dist'),
-        library: 'SP',
+        library: 'sp',
         libraryTarget: 'umd'
     }, 
     module: {
@@ -31,6 +31,14 @@ module.exports = {
                 use: [
                     'style-loader',
                     'css-loader'
+                ]
+            },
+            {
+                test: /\.sass$/,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'sass-loader'
                 ]
             },
             {

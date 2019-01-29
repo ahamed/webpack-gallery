@@ -10,7 +10,9 @@ class gallery {
         };
         this.options = _.extend({}, this._defaults, options);
 
-        new Wrapper();
+        let wrapper = new Wrapper();
+        // document.body.appendChild(wrapper.createWrapper());
+        document.body.appendChild('');
     }
 }
 

@@ -14,6 +14,8 @@ class Wrapper {
         el2.event('click', (event) => {
             alert('clicked');
         });
+        
+        console.log(Depot.storageElements);
     }
 }
 

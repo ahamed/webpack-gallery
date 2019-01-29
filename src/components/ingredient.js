@@ -41,7 +41,7 @@ class Ingredient {
                 }
     
                 //TODO Register element
-                
+                this.registerElement(this.elementName, _element);
                 return _element;
             } else {
                 throw new Error("Every element must have a unique name.");
@@ -52,6 +52,25 @@ class Ingredient {
         }
     }
 
+    registerElement(name, element) {
+        try {
+            if (this.getElement(name) == false) {
+                Depot.storageElements.push({
+                    name: name,
+                    element: element
+                });
+            } else {
+                throw new Error('Duplicated element name. Each element must have a unique name.');
+            }
+        } catch(ex) {
+            console.error(ex.message);
+        }
+    }
+
+    getElement(name) {
+        let el = Depot.storageElements.filter((element) => element.name == name);
+        return el ? el : false;
+    }
 
     /**
      * elementise the class

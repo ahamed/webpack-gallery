@@ -7,6 +7,12 @@ module.exports = {
     entry: {
         app: './src/index.js'
     },
+    resolve: {
+        extensions: ['.js'],
+        alias: {
+            'Depot': path.resolve(__dirname, './src/components/depot.js')
+        }
+    },
     plugins: [
         new CleanWebpackPlugin(['dist']),
         new HtmlWebpackPlugin({
@@ -15,8 +21,10 @@ module.exports = {
             inject: 'head',
             favicon: './favicon.ico'
         }),
-        new webpack.HotModuleReplacementPlugin()
-
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.ProvidePlugin({
+            'Depot': 'Depot'
+        })
     ],
     output: {
         filename: '[name].bundle.js',

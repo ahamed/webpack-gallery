@@ -1,0 +1,3 @@
+
+var storageElements = [];
+export {storageElements};

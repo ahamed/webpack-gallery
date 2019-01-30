@@ -1,0 +1,11 @@
+.spgallery-drop-area {
+    width: 800px;
+    min-height: 400px;
+    padding: 20px;
+    border: 2px dashed #aeaeae;
+    border-radius: 5px;
+}
+
+.basic-button-group {
+    justify-content: center !important;
+}

@@ -1,21 +1,39 @@
 import { Ingredient } from "./ingredient";
 
 class Wrapper {
-    constructor() {
+    constructor(baseElement) {
+        this.baseElement = baseElement;
         this.createWrapper();
     }
 
     createWrapper() {
-        let el = new Ingredient('div', 'div1', {class: 'cls1'});
-        let el2 = new Ingredient('button', 'button1', {class: 'button is-primary'}, 'Button');
-        el.append(el2.toDom());
-        el.appendTo(document.body);
-
-        el2.event('click', (event) => {
-            alert('clicked');
+        // spgalleryDropArea @parent baseElement
+        let galleryDropArea = new Ingredient('div', 'spgalleryDropArea',{
+            class: 'spgallery-drop-area'
         });
-        
-        console.log(Depot.storageElements);
+        galleryDropArea.appendTo(this.baseElement);
+
+
+        // basicButtonGroup @parent galleryDropArea
+        let basicButtonGroup = new Ingredient('div', 'basicButtonGroup', {
+            class: 'buttons basic-button-group'
+        });
+        galleryDropArea.append(basicButtonGroup.toDom());
+
+        // uploadImages button @parent spgalleryDropArea
+        let uploadImages = new Ingredient('button', 'uploadImages', {
+            class: 'button is-success is-outlined fa fa-upload',
+            type: 'button'
+        }, ' Upload');
+        basicButtonGroup.append(uploadImages.toDom());
+
+        // mediaLibrary button @parent spgalleryDropArea
+        let mediaLibrary = new Ingredient('button', 'mediaLibrary', {
+            class: 'button is-danger is-outlined fa fa-picture-o',
+            type: 'button'
+        }, ' Media Library');
+        basicButtonGroup.append(mediaLibrary.toDom());
+
     }
 }
 

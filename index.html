@@ -7,8 +7,11 @@
     <title>Document</title>
 </head>
 <body>
+    <div id='gallery'></div>
     <script>
-        new sp.gallery();
+        new sp.gallery({
+            baseElement: document.getElementById('gallery')
+        });
     </script>
 </body>
 </html>
